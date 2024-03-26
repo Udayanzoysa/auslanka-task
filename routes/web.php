@@ -17,8 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('/view/{$proID}', function () {
-    return view('view');
+Route::get('/products/{proID}', function ($proID) {
+    return view('view', ['proID' => $proID]);
 });
-
-

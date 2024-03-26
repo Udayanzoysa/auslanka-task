@@ -47,8 +47,7 @@
                 method: "GET",
                 success: function(response) {
                     // Handle success response
-                    var products = response
-                    .products; // Assuming products is the array containing product objects
+                    var products = response.products; // Assuming products is the array containing product objects
                     console.log(products);
                     if (products && products.length > 0) {
                         // Iterate through each product and append to the table
@@ -62,11 +61,11 @@
                                 "<td>" + product.updated_at + "</td>" +
                                 "<td>" +
                                 "<button class='btn btn-primary btn-sm mr-2' onclick='updateProduct(" +
-                                product.id + ")'>Update</button>" +
+                                product.proID + ")'>Update</button>" +
                                 "<button class='btn btn-danger btn-sm mr-2' onclick='deleteProduct(" +
-                                product.id + ")'>Delete</button>" +
+                                product.proID + ")'>Delete</button>" +
                                 "<button class='btn btn-success btn-sm' onclick='viewProduct(" +
-                                product.id + ")'>View</button>" +
+                                product.proID + ")'>View</button>" +
                                 "</td>" +
                                 "</tr>";
                             $("#productTableBody").append(row);
@@ -97,6 +96,7 @@
         // Function to handle viewing a product
         function viewProduct(productId) {
             // Implement view logic here
+            window.location.href = "/products/" + productId;
             console.log("View product with ID: " + productId);
         }
     </script>
